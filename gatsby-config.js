@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `PM Field Manual`,
-    siteUrl: `https://www.yourdomain.tld`
+    siteUrl: `https://pmfieldmanual.com`
   },
   plugins: [{
     resolve: 'gatsby-plugin-google-analytics',
