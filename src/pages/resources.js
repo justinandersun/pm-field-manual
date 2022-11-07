@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { graphql } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import Layout from '../components/layout'
 import Seo from '../components/seo'
 
@@ -9,10 +9,14 @@ const ResourcesPage = ({ data }) => {
       <p>All PM templates, tools, guides, and resources will go here.</p>
       <ul>
       {
-        data.allFile.nodes.map(node => (
-          <li key={node.name}>
-            {node.name}
-          </li>
+        data.allMdx.nodes.map((node) => (
+          <article key={node.id}>
+            <li>
+              <Link to={`/${node.frontmatter.slug}`}>
+                {node.frontmatter.title}
+              </Link>
+            </li>
+          </article>
         ))
       }
       </ul>
@@ -22,9 +26,14 @@ const ResourcesPage = ({ data }) => {
 
 export const query = graphql`
   query {
-    allFile(filter: {sourceInstanceName: {eq: "resources"}}) {
+    allMdx(sort: {fields: frontmatter___date, order: DESC}) {
       nodes {
-        name
+        frontmatter {
+          date(formatString: "D MMM YYYY")
+          title
+          slug
+        }
+        id
       }
     }
   }
