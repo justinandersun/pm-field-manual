@@ -1,0 +1,24 @@
+
+h2 {
+  font-size: 2.5em;
+  font-weight: 900;
+  padding-bottom: 0.5em;
+  text-align: center;
+}
+
+h3 {
+  font-size: 1.7em;
+  font-weight: 100;
+  padding-bottom: 1.5em;
+  text-align: center;
+}
+
+h4 {
+  font-size: 1.3em;
+  padding: 0.5em 0;
+}
+
+.emphasis {
+  border-bottom: 2px dotted var(--pink);
+  color: var(--pink);
+}
